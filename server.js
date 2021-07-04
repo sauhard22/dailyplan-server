@@ -44,7 +44,7 @@ app.post('/generate/pdf', (req, res) => {
     // const stream = doc.pipe(blobStream());
 
     doc.pipe(pdfFilesBucket.file(`output${id}.pdf`).createWriteStream());
-    doc.pipe()
+    doc.pipe(res)
 
     doc.fontSize(20);
     doc.text('Weekly Online Learning Schedule', {
@@ -103,14 +103,13 @@ app.post('/generate/pdf', (req, res) => {
 
 })
 
-app.post('/download/pdf', (req,res) => {
-    // const id = req.body.id_1
-
-    // const file = pdfFilesBucket.file(`output5368.pdf`)
+app.get('/download/pdf', (req,res) => {
+    const file = pdfFilesBucket.file(`output5368.pdf`)
 
     // file.download({
     //     destination: `your_file5368.pdf`
     // })
+    res.send(file)
 })
 app.get('/isworking', (req,res)=> {
     console.log("working")
