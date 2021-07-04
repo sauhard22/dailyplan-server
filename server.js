@@ -106,7 +106,9 @@ app.get('/download/pdf', (req,res) => {
     // file.download({
     //     destination: `your_file5368.pdf`
     // })
-    
+    res.setHeader('Content-Type', 'application/pdf')
+    res.setHeader('Content-Disposition', 'inline;filename=yolo.pdf')
+    res.download(file)
 
     
 })
