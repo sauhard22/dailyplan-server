@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const db = mysql.createConnection({
-    socketPath: "/cloudsql/dailyplan-318514:us-central1:daily-plan",
+    // socketPath: "/cloudsql/dailyplan-318514:us-central1:daily-plan",
     host: '34.136.17.35',
     user: 'sauhard',
     password: 'password',
@@ -114,6 +114,7 @@ app.post('/download/pdf', (req,res) => {
 })
 app.get('/isworkin', (req,res)=> {
     res.send("working")
+    console.log("working")
 })
 app.post('/period_details/insert', (req, res) => {
     const date = req.body.date
