@@ -97,15 +97,7 @@ app.post('/generate/pdf', (req, res) => {
     doc.text('Note: In each period Teacher will be available on phone after Zoom interactive class/tutorial video, till the period ends. Feel free to interact through text/voice messaging or calling the teacher.', {
         align: 'left'
     })
-
-    doc.output( pdf => {
-        res.type('application/pdf');
-        res.end(pdf, 'binary');
-    });
-
     doc.end()
-   
-
 })
 
 app.get('/download/pdf', (req,res) => {
@@ -114,15 +106,7 @@ app.get('/download/pdf', (req,res) => {
     // file.download({
     //     destination: `your_file5368.pdf`
     // })
-    // fs.readFile(file , function (err,data){
-    //     res.contentType("application/pdf");
-    //     res.send(data);
-    // });
-
-    // res.sendFile(file)
-    // console.log(file)
-    // var doc = new Pdf();
-    // doc.text("Hello World", 50, 50);
+    
 
     
 })
