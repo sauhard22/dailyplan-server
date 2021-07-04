@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const db = mysql.createConnection({
     socketPath: "/cloudsql/dailyplan-318514:us-central1:daily-plan",
     host: '34.136.17.35',
-    user: 'root',
+    user: 'sauhard',
     password: 'password',
     database: 'dailyplan'
 });
@@ -112,7 +112,9 @@ app.post('/download/pdf', (req,res) => {
         destination: `your_file${id}.pdf`
     })
 })
-
+app.get('/isworkin', (req,res)=> {
+    res.send("working")
+})
 app.post('/period_details/insert', (req, res) => {
     const date = req.body.date
     const period_number = req.body.period_number
@@ -140,6 +142,8 @@ app.post('/form_details/insert', (req, res) => {
     db.query(sqlQuery, [from_date, to_date, clas_s, date, day], (err, result) => {
         console.log(err)
     })
+
+    console.log("done")
 })
 
 app.listen(3001, () => {
