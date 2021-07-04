@@ -98,6 +98,11 @@ app.post('/generate/pdf', (req, res) => {
         align: 'left'
     })
 
+    doc.output( pdf => {
+        res.type('application/pdf');
+        res.end(pdf, 'binary');
+    });
+
     doc.end()
    
 
@@ -114,8 +119,12 @@ app.get('/download/pdf', (req,res) => {
     //     res.send(data);
     // });
 
-    res.sendFile(file)
+    // res.sendFile(file)
     // console.log(file)
+    // var doc = new Pdf();
+    // doc.text("Hello World", 50, 50);
+
+    
 })
 app.get('/isworking', (req,res)=> {
     console.log("working")
