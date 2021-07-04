@@ -44,7 +44,7 @@ app.post('/generate/pdf', (req, res) => {
     // const stream = doc.pipe(blobStream());
 
     doc.pipe(pdfFilesBucket.file(`output${id}.pdf`).createWriteStream());
-    doc.pipe(res)
+    doc.pipe()
 
     doc.fontSize(20);
     doc.text('Weekly Online Learning Schedule', {
@@ -113,8 +113,12 @@ app.post('/download/pdf', (req,res) => {
     // })
 })
 app.get('/isworking', (req,res)=> {
-    res.send("working")
     console.log("working")
+    const query = "select * from period_details"
+
+    db.query(query,(err,result) => {
+        res.send(result)
+    } )
 })
 app.post('/period_details/insert', (req, res) => {
     const date = req.body.date
