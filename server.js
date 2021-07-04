@@ -15,8 +15,8 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const db = mysql.createConnection({
-    // socketPath: "/cloudsql/dailyplan-318514:us-central1:daily-plan",
-    host: 'localhost',
+    socketPath: "/cloudsql/dailyplan-318514:us-central1:daily-plan",
+    host: '34.136.17.35',
     user: 'root',
     password: 'password',
     database: 'dailyplan'
