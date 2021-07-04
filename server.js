@@ -147,6 +147,6 @@ app.post('/form_details/insert', (req, res) => {
     console.log("done")
 })
 
-app.listen(3001, () => {
-    console.log('server is up on port 3001')
+app.listen(8080, () => {
+    console.log('server is up on port 8080')
 })
