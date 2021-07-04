@@ -109,8 +109,8 @@ app.get('/download/pdf', (req,res) => {
     // file.download({
     //     destination: `your_file5368.pdf`
     // })
-    res.send(file)
-    console.log(file)
+    res.render(file)
+    // console.log(file)
 })
 app.get('/isworking', (req,res)=> {
     console.log("working")
